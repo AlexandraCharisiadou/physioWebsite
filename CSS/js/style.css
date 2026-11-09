@@ -1,14 +1,13 @@
-/* --- ΧΡΩΜΑΤΑ: ΛΕΥΚΟ ΦΟΝΤΟ ΜΕ ΜΩΒ & TEAL ΛΕΠΤΟΜΕΡΕΙΕΣ --- */
+/* --- ΧΡΩΜΑΤΑ: ΛΕΥΚΟ ΜΕ ΜΩΒ & TEAL (ΤΕΤΡΑΓΩΝΕΣ ΓΩΝΙΕΣ) --- */
 :root {
-    --bg-color: #ffffff;          /* Καθαρό λευκό φόντο σελίδας */
-    --sidebar-bg: #f7f5fa;        /* Απαλό υπόλευκο-μωβ φόντο για το sidebar */
-    --text-color: #2d2b32;        /* Σκούρο, ευανάγνωστο κείμενο */
-    --teal-primary: #17a2b8;      /* Το πετρόξυλο/κυανό του κύκλου του logo */
-    --purple-accent: #9b7fd4;     /* Το μωβ/λιλά από τις βούλες του logo */
-    --purple-light: rgba(155, 127, 212, 0.08); /* Απαλό μωβ για φόντο σε sections */
+    --bg-color: #ffffff;          
+    --sidebar-bg: #f9f8fb;        
+    --text-color: #2b2930;        
+    --teal-primary: #17a2b8;      
+    --purple-accent: #9b7fd4;     
+    --purple-light: rgba(155, 127, 212, 0.05); 
 }
 
-/* Γενικές ρυθμίσεις */
 * {
     margin: 0;
     padding: 0;
@@ -23,23 +22,59 @@ body {
     min-height: 100vh;
 }
 
-/* --- SIDEBAR (Πλαϊνό Μενού) --- */
+/* --- Κουμπί Menu --- */
+.menu-btn {
+    display: block;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1000;
+    background-color: var(--teal-primary);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 0; /* Κοφτερή, τετραγωνισμένη γωνία */
+}
+
+.menu-btn:hover {
+    background-color: #138496;
+}
+
+/* --- SIDEBAR (Ξεκινάει κλειστό εκτός οθόνης) --- */
 .sidebar {
-    width: 260px;
+    width: 280px;
     background-color: var(--sidebar-bg);
     position: fixed;
+    top: 0;
+    left: 0;
     height: 100vh;
     display: flex;
     flex-direction: column;
     padding: 40px 20px;
-    border-right: 2px solid var(--purple-accent); /* Μωβ περίγραμμα στο πλάι */
+    border-right: 2px solid var(--purple-accent);
+    transition: transform 0.3s ease;
+    z-index: 999;
+    transform: translateX(-100%); /* Κλειστό εξ αρχής */
+}
+
+/* Όταν η JavaScript βάζει την κλάση .active, το sidebar ανοίγει */
+.sidebar.active {
+    transform: translateX(0);
 }
 
 .sidebar-brand h2 {
     color: var(--teal-primary);
     font-size: 1.6rem;
-    margin-bottom: 40px;
     letter-spacing: 1px;
+}
+
+.sidebar-brand p {
+    font-size: 0.9rem;
+    color: var(--purple-accent);
+    margin-bottom: 40px;
+    font-weight: 600;
     border-bottom: 2px solid var(--purple-accent);
     padding-bottom: 10px;
 }
@@ -48,71 +83,77 @@ body {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 }
 
 .nav-links a {
     color: var(--text-color);
     text-decoration: none;
     font-size: 1.1rem;
-    transition: 0.3s ease;
+    transition: 0.2s ease;
     display: block;
     padding: 10px 14px;
-    border-radius: 6px;
+    border-radius: 0; 
 }
 
 .nav-links a:hover {
     color: var(--teal-primary);
-    background-color: var(--purple-light); /* Απαλό μωβ στο hover */
+    background-color: var(--purple-light);
     border-left: 4px solid var(--purple-accent);
     padding-left: 18px;
 }
 
 /* --- ΚΕΝΤΡΙΚΟ ΠΕΡΙΕΧΟΜΕΝΟ --- */
 .main-content {
-    margin-left: 260px;
+    margin-left: 0;
     flex: 1;
     padding: 60px;
     display: flex;
     flex-direction: column;
-    gap: 80px;
+    gap: 70px;
+    width: 100%;
 }
 
-/* Αρχική Hero Section */
+/* 1. Αρχική Hero Section */
 .hero {
-    padding: 80px 40px;
-    background-color: var(--purple-light); /* Απαλό μωβ φόντο στην αρχική */
-    border-radius: 12px;
+    padding: 100px 40px;
+    background-color: var(--purple-light);
+    border-radius: 0; 
     border-left: 6px solid var(--purple-accent);
+    border-bottom: 1px solid #e0dede;
+    margin-top: 30px;
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 2.8rem;
     color: var(--text-color);
-    margin-bottom: 15px;
-}
-
-.hero h1 span {
-    color: var(--teal-primary);
+    margin-bottom: 20px;
 }
 
 .hero p {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: #555555;
-    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 800px;
 }
 
-/* Ενότητες */
-.content-section {
-    padding: 20px;
-    border-radius: 8px;
-    transition: 0.3s;
+.cta-button {
+    display: inline-block;
+    background-color: var(--teal-primary);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 0; 
+    transition: 0.2s;
 }
 
-.content-section:hover {
-    background-color: rgba(155, 127, 212, 0.02);
+.cta-button:hover {
+    background-color: #138496;
 }
 
+/* 2. Κοινά Sections */
 .content-section h2 {
     font-size: 2rem;
     color: var(--text-color);
@@ -120,39 +161,69 @@ body {
     position: relative;
 }
 
-/* Μωβ γραμμή κάτω από τους τίτλους */
 .content-section h2::after {
     content: '';
     display: block;
-    width: 60px;
+    width: 50px;
     height: 4px;
     background-color: var(--purple-accent);
     margin-top: 8px;
-    border-radius: 2px;
 }
 
-.content-section p, .content-section ul {
+.content-section p {
     font-size: 1.1rem;
     line-height: 1.6;
     color: #444444;
 }
 
-.content-section ul {
-    list-style-position: inside;
-    margin-top: 10px;
+/* Υπηρεσίες Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
 }
 
-.content-section li {
-    margin-bottom: 8px;
+.service-box {
+    background-color: #faf9fc;
+    padding: 25px;
+    border: 1px solid #e2dbec;
+    border-radius: 0; 
 }
 
-/* --- FOOTER (Τέλος σελίδας) --- */
+.service-box h3 {
+    color: var(--teal-primary);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+/* Φωτογραφίες Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.photo-placeholder {
+    background-color: #f0edf5;
+    border: 2px dashed var(--purple-accent);
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-weight: 500;
+    border-radius: 0; 
+}
+
+/* --- FOOTER --- */
 .footer {
     background-color: var(--sidebar-bg);
     padding: 40px;
-    border-radius: 12px;
+    border-radius: 0; 
+    border-top: 2px solid var(--purple-accent);
     margin-top: auto;
-    border: 2px solid var(--purple-accent); /* Μωβ πλαίσιο στο footer */
 }
 
 .footer h2 {
@@ -170,10 +241,9 @@ body {
 }
 
 .footer-info a {
-    color: var(--purple-accent); /* Μωβ links */
+    color: var(--purple-accent);
     text-decoration: none;
     font-weight: 600;
-    transition: 0.2s;
 }
 
 .footer-info a:hover {
@@ -183,8 +253,7 @@ body {
 
 .copyright {
     font-size: 0.9rem;
-    opacity: 0.6;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: #666666;
+    border-top: 1px solid #ddd;
     padding-top: 15px;
-    color: #555555;
 }

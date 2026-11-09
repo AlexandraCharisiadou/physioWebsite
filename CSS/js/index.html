@@ -9,17 +9,21 @@
 </head>
 <body>
 
-    <!-- Πλαϊνό Μενού (Sidebar) -->
-    <nav class="sidebar">
+    <!-- Κουμπί Menu για άνοιγμα/κλείσιμο του sidebar -->
+    <button class="menu-btn" id="menuToggle">☰ Menu</button>
+
+    <!-- Πλαϊνό Μενού (Sidebar - Ξεκινάει κλειστό) -->
+    <nav class="sidebar" id="sidebar">
         <div class="sidebar-brand">
             <h2>Wamsler</h2>
+            <p>Physiotherapy</p>
         </div>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#gallery">Photos</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#home">Αρχική</a></li>
+            <li><a href="#about">Σχετικά με εμάς</a></li>
+            <li><a href="#services">Υπηρεσίες</a></li>
+            <li><a href="#gallery">Φωτογραφίες</a></li>
+            <li><a href="#contact">Επικοινωνία</a></li>
         </ul>
     </nav>
 
@@ -28,38 +32,52 @@
         
         <!-- Αρχική / Hero Section -->
         <section id="home" class="hero">
-            <h1>Physiotherapy Wamsler</h1>
-            <p>Your path to recovery, movement, and wellness.</p>
+            <h1>Καλώς ήρθατε στο Physiotherapy Wamsler</h1>
+            <p>Εξειδικευμένη φροντίδα, αποκατάσταση και κίνηση χωρίς πόνους. Στόχος μας η επαναφορά σας στην πλήρη λειτουργικότητα.</p>
+            <a href="#contact" class="cta-button">Κλείστε Ραντεβού</a>
         </section>
 
         <!-- About Us -->
         <section id="about" class="content-section">
-            <h2>About Us</h2>
-            <p>Εδώ μπορείς να γράψεις λίγα λόγια για το ιστορικό της επιχείρησης, τη φιλοσοφία σας και την εμπειρία σας στη φυσικοθεραπεία.</p>
+            <h2>Σχετικά με εμάς</h2>
+            <p>Το κέντρο φυσικοθεραπείας Wamsler προσφέρει σύγχρονες μεθόδους αποκατάστασης βασισμένες σε επιστημονικά τεκμηριωμένες πρακτικές. Με γνώμονα τον ασθενή, παρέχουμε εξατομικευμένα προγράμματα θεραπείας για κάθε πάθηση.</p>
         </section>
 
         <!-- Services -->
         <section id="services" class="content-section">
-            <h2>Our Services</h2>
-            <ul>
-                <li>Μυοσκελετική Φυσικοθεραπεία</li>
-                <li>Αποκατάσταση Αθλητικών Κακώσεων</li>
-                <li>Μετεγχειρητική Αποκατάσταση</li>
-            </ul>
+            <h2>Οι Υπηρεσίες μας</h2>
+            <div class="services-grid">
+                <div class="service-box">
+                    <h3>Μυοσκελετική Φυσικοθεραπεία</h3>
+                    <p>Αντιμετώπιση πόνων μέσης, αυχένα, αρθρώσεων και χρόνιων μυοσκελετικών παθήσεων.</p>
+                </div>
+                <div class="service-box">
+                    <h3>Αποκατάσταση Αθλητικών Κακώσεων</h3>
+                    <p>Ειδικά προγράμματα επανένταξης αθλητών μετά από τραυματισμούς ή χειρουργεία.</p>
+                </div>
+                <div class="service-box">
+                    <h3>Μετεγχειρητική Αποκατάσταση</h3>
+                    <p>Στοχευμένη κινησιοθεραπεία για γρήγορη και ασφαλή ανάκτηση της κινητικότητας.</p>
+                </div>
+            </div>
         </section>
 
         <!-- Photos / Gallery -->
         <section id="gallery" class="content-section">
-            <h2>Photos</h2>
-            <p>Εδώ θα προσθέσουμε φωτογραφίες από τον χώρο σας ή τον εξοπλισμό.</p>
-            <!-- Παράδειγμα εικόνας: <img src="photo1.jpg" alt="Clinic photo"> -->
+            <h2>Φωτογραφίες Χώρου</h2>
+            <p>Δείτε φωτογραφίες από τις σύγχρονες εγκαταστάσεις μας και τον εξοπλισμό αποκατάστασης.</p>
+            <div class="gallery-grid">
+                <div class="photo-placeholder">Φωτογραφία 1 (Χώρος Υποδοχής)</div>
+                <div class="photo-placeholder">Φωτογραφία 2 (Αίθουσα Θεραπείας)</div>
+                <div class="photo-placeholder">Φωτογραφία 3 (Εξοπλισμός)</div>
+            </div>
         </section>
 
         <!-- Footer / Στο τέλος της σελίδας -->
         <footer id="contact" class="footer">
-            <h2>Contact Us</h2>
+            <h2>Επικοινωνία</h2>
             <div class="footer-info">
-                <p><strong>Διεύθυνση:</strong> Οδός Αριθμός, Πόλη</p>
+                <p><strong>Διεύθυνση:</strong> Οδός Παραδείγματος 123, Πόλη</p>
                 <p><strong>Τηλέφωνο:</strong> <a href="tel:+302100000000">+30 210 0000000</a></p>
                 <p><strong>Instagram:</strong> <a href="https://instagram.com/yourprofile" target="_blank">@physiotherapy_wamsler</a></p>
             </div>
@@ -67,6 +85,9 @@
         </footer>
 
     </main>
+
+    <!-- Σύνδεση με το αρχείο JavaScript -->
+    <script src="script.js"></script>
 
 </body>
 </html>
