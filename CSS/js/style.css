@@ -1,3 +1,190 @@
+/* --- ΧΡΩΜΑΤΑ: ΛΕΥΚΟ ΦΟΝΤΟ ΜΕ ΜΩΒ & TEAL ΛΕΠΤΟΜΕΡΕΙΕΣ --- */
+:root {
+    --bg-color: #ffffff;          /* Καθαρό λευκό φόντο σελίδας */
+    --sidebar-bg: #f7f5fa;        /* Απαλό υπόλευκο-μωβ φόντο για το sidebar */
+    --text-color: #2d2b32;        /* Σκούρο, ευανάγνωστο κείμενο */
+    --teal-primary: #17a2b8;      /* Το πετρόξυλο/κυανό του κύκλου του logo */
+    --purple-accent: #9b7fd4;     /* Το μωβ/λιλά από τις βούλες του logo */
+    --purple-light: rgba(155, 127, 212, 0.08); /* Απαλό μωβ για φόντο σε sections */
+}
+
+/* Γενικές ρυθμίσεις */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-background-color: honeydew;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- SIDEBAR (Πλαϊνό Μενού) --- */
+.sidebar {
+    width: 260px;
+    background-color: var(--sidebar-bg);
+    position: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 20px;
+    border-right: 2px solid var(--purple-accent); /* Μωβ περίγραμμα στο πλάι */
+}
+
+.sidebar-brand h2 {
+    color: var(--teal-primary);
+    font-size: 1.6rem;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+    border-bottom: 2px solid var(--purple-accent);
+    padding-bottom: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: 0.3s ease;
+    display: block;
+    padding: 10px 14px;
+    border-radius: 6px;
+}
+
+.nav-links a:hover {
+    color: var(--teal-primary);
+    background-color: var(--purple-light); /* Απαλό μωβ στο hover */
+    border-left: 4px solid var(--purple-accent);
+    padding-left: 18px;
+}
+
+/* --- ΚΕΝΤΡΙΚΟ ΠΕΡΙΕΧΟΜΕΝΟ --- */
+.main-content {
+    margin-left: 260px;
+    flex: 1;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+/* Αρχική Hero Section */
+.hero {
+    padding: 80px 40px;
+    background-color: var(--purple-light); /* Απαλό μωβ φόντο στην αρχική */
+    border-radius: 12px;
+    border-left: 6px solid var(--purple-accent);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    color: var(--teal-primary);
+}
+
+.hero p {
+    font-size: 1.3rem;
+    color: #555555;
+    font-weight: 500;
+}
+
+/* Ενότητες */
+.content-section {
+    padding: 20px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.content-section:hover {
+    background-color: rgba(155, 127, 212, 0.02);
+}
+
+.content-section h2 {
+    font-size: 2rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Μωβ γραμμή κάτω από τους τίτλους */
+.content-section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--purple-accent);
+    margin-top: 8px;
+    border-radius: 2px;
+}
+
+.content-section p, .content-section ul {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444444;
+}
+
+.content-section ul {
+    list-style-position: inside;
+    margin-top: 10px;
+}
+
+.content-section li {
+    margin-bottom: 8px;
+}
+
+/* --- FOOTER (Τέλος σελίδας) --- */
+.footer {
+    background-color: var(--sidebar-bg);
+    padding: 40px;
+    border-radius: 12px;
+    margin-top: auto;
+    border: 2px solid var(--purple-accent); /* Μωβ πλαίσιο στο footer */
+}
+
+.footer h2 {
+    font-size: 1.5rem;
+    color: var(--teal-primary);
+    margin-bottom: 15px;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.footer-info a {
+    color: var(--purple-accent); /* Μωβ links */
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.footer-info a:hover {
+    color: var(--teal-primary);
+    text-decoration: underline;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    opacity: 0.6;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 15px;
+    color: #555555;
 }
